@@ -68,3 +68,22 @@ function guardar() {
     listado.innerHTML = list;
     document.getElementById("nombre").value = "";
 }
+//función normal
+/*
+setInterval(function(){
+console.log("hola");
+
+},1000);*/
+//función de flecha
+setInterval(function () {
+    console.log("hola");
+}, 1000);
+var frutas = [
+    'Manzana',
+    'Naranja',
+    'Platano'
+];
+var recorrer = frutas.map(function (fruta) {
+    console.log(fruta);
+    console.log(fruta.length);
+});

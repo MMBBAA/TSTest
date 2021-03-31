@@ -71,3 +71,31 @@ function guardar(){
 	 (<HTMLInputElement>document.getElementById("nombre")).value="";
 
 }
+
+//función normal
+/*
+setInterval(function(){
+console.log("hola");
+
+},1000);*/
+
+//función de flecha
+
+setInterval(()=>{
+console.log("hola");
+
+},1000);
+
+var frutas=[
+
+'Manzana',
+'Naranja',
+'Platano'
+]
+//función map
+var recorrer=frutas.map(fruta=>{
+
+console.log(fruta);
+console.log(fruta.length);
+
+});
