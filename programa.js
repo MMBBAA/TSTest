@@ -1,3 +1,4 @@
+//decorador
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -13,6 +14,24 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+/*	le estamos añadiendo un nuevo metodo que se va a llamar lanzamiento
+el decorador arranque es una funcion normal, donde lo usemos le vamos a añadir un nuevo método
+que se va a llamar lanzamiento,que es una función normal y va a devolver un simple console.log*/
+function arranque(lanzar) {
+    return function (target) {
+        target.prototype.lanzamiento = function () {
+            alert(lanzar);
+        };
+    };
+}
+//uso del decorador arranque
+//cuando se instancie Programa
 var Programa = /** @class */ (function () {
     function Programa() {
     }
@@ -29,8 +48,15 @@ var Programa = /** @class */ (function () {
     Programa.prototype.getVersion = function () {
         return this.version;
     };
+    Programa = __decorate([
+        arranque('lanzamiento del curso de nodeJS')
+    ], Programa);
     return Programa;
 }());
+/*cuando use programa voy a tener un nuevo método que se llama lanzamiento, el
+definido en "target.prototype.lanzamiento". así que ahora mismo puedo decirle que lo ejecute va a hacer un ALERT*/
+var programa = new Programa();
+programa.lanzamiento();
 var EditorVideo = /** @class */ (function (_super) {
     __extends(EditorVideo, _super);
     function EditorVideo() {

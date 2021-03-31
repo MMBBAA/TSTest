@@ -1,3 +1,19 @@
+//decorador
+
+
+/*	le estamos añadiendo un nuevo metodo que se va a llamar lanzamiento
+el decorador arranque es una funcion normal, donde lo usemos le vamos a añadir un nuevo método
+que se va a llamar lanzamiento,que es una función normal y va a devolver un simple console.log*/
+function arranque(lanzar:string){
+	return function(target:Function){
+		target.prototype.lanzamiento=function():void{
+			alert(lanzar);
+		}
+	}
+}
+//uso del decorador arranque
+//cuando se instancie Programa
+@arranque('lanzamiento del curso de nodeJS')
 class Programa{
 
 	public nombre:string;
@@ -20,6 +36,11 @@ class Programa{
 		return this.version;
 	}
 }
+/*cuando use programa voy a tener un nuevo método que se llama lanzamiento, el 
+definido en "target.prototype.lanzamiento". así que ahora mismo puedo decirle que lo ejecute va a hacer un ALERT*/
+var programa=new Programa();
+programa.lanzamiento();
+
 
 class EditorVideo extends Programa{
 
