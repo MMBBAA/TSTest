@@ -92,7 +92,7 @@ var frutas=[
 'Naranja',
 'Platano'
 ]
-//función map
+//función map para recorrer el array
 var recorrer=frutas.map(fruta=>{
 
 console.log(fruta);
